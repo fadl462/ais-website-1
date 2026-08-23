@@ -25,9 +25,4 @@ Embedded: `https://www.youtube.com/embed/cFExUdqsbL8?start=22&rel=0`
 No build process is required. Upload the contents of this folder to GitHub Pages or another static host.
 
 
-## Photography correction pass
-- Hero and final CTA now use a faithful crop of the supplied AIS campus photograph with the incomplete right-hand structure excluded.
-- The site no longer uses generic stock photography.
-- Campus photography is intentionally used only where it represents the campus; the site does not label a campus photo as a classroom, sports field or laboratory.
-- The documentary is presented as a premium poster card and opens the requested YouTube embed at 00:22 in a modal, avoiding a blank/black iframe on initial page load.
-- Additional authentic AIS event/classroom/sports photography should replace the limited verified set once supplied by the school or retrieved from approved source files.
+Photography policy (v3): The homepage uses only the supplied/enhanced AIS campus photograph and the AIS documentary thumbnail. No unrelated school stock photography is presented as AIS. Sections requiring classroom, laboratory, ICT, library or sports photographs are intentionally marked for approved AIS photography rather than using misleading substitutes.
