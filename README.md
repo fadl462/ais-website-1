@@ -1,39 +1,25 @@
-# AIS Signature+ — Premium Refinement
+# AIS Signature+
 
-T.I. Ahmadiyya International School — Best Among Equals.
+Premium static website prototype for **T.I. Ahmadiyya International School**.
 
-This is the refined static website build based on the AIS Signature+ / Prototype 1 direction.
+## Refinement highlights
 
-## What's included
+- Corrected AIS crest based directly on the supplied original crest image.
+- High-resolution transparent crest asset for dark and light backgrounds.
+- Enhanced school campus photograph supplied for this project.
+- Embedded **T I Ahmadiyyah School Documentary** from YouTube, beginning at 00:22.
+- Added school-at-a-glance content covering location, establishment, day/boarding model and community.
+- Expanded academic content to reflect supplied information including Mathematics, English, Integrated Science and ICT.
+- Expanded school-life content to include soccer, volleyball and athletics.
+- Added contact/location and public-transit guidance.
+- Preserved the premium responsive design, admissions journey, gallery/lightbox and AIS Now → AIS Next strategy.
 
-- Premium responsive homepage
-- Sticky glass navigation with mobile drawer
-- Full-screen editorial hero with admissions conversion card
-- AIS Difference interactive pillar cards
-- Interactive Every Stage Matters journey
-- Academic programme section
-- School Life image composition
-- Interactive facilities selector
-- Admissions conversion section
-- Parent perspective placeholder
-- News & Events editorial layout
-- Gallery masonry layout and lightbox
-- AIS Now → AIS Next digital evolution section
-- Full-screen final CTA
-- Responsive institutional sub-pages
-- Refined motion, hover states and scroll reveals
-- Premium crest asset generated from the supplied AIS crest image
+## YouTube
 
-## Important content note
+https://www.youtube.com/watch?v=cFExUdqsbL8&t=22s
 
-The photography remains temporary web imagery in selected sections. Replace those URLs with approved AIS photography before the production launch.
-
-The testimonial and selected news/event entries are presentation-ready placeholders and should be replaced with AIS-approved content.
+Embedded: `https://www.youtube.com/embed/cFExUdqsbL8?start=22&rel=0`
 
 ## Deployment
 
-No build process is required. Upload the contents of this folder to GitHub Pages, Netlify, Vercel static hosting, or another static host.
-
-## Main entry
-
-`index.html`
+No build process is required. Upload the contents of this folder to GitHub Pages or another static host.
