@@ -33,3 +33,10 @@ Photography policy (v3): The homepage uses only the supplied/enhanced AIS campus
 - Replaced auto-loading black YouTube iframe with a premium AIS documentary poster that loads the video only after user interaction.
 - Removed misleading academic/facility imagery and uses verified-media placeholders where AIS-specific photography is not available.
 - Reduced repetitive campus imagery across sections.
+
+
+## Latest correction pass
+- Removed the artificial campus sign/billboard from the web-ready campus master by cropping it out rather than inventing a replacement structure.
+- Reduced section spacing.
+- Made reveal animations fail-safe so content never remains hidden/blank.
+- Changed the documentary to a premium click-to-open YouTube modal starting at 00:22.

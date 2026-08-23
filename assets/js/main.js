@@ -8,33 +8,46 @@ const links=document.querySelector('.nav-links');
 if(menu&&links){menu.addEventListener('click',()=>{const open=links.classList.toggle('mobile-open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'×':'☰'});links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('mobile-open');menu.textContent='☰';menu.setAttribute('aria-expanded','false')}))}
 
 const revealItems=[...document.querySelectorAll('.reveal')];
+// Reveal is intentionally fail-safe: content starts visible so slow connections or blocked observers never create blank sections.
 if('IntersectionObserver' in window){
-  const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.06,rootMargin:'0px 0px 180px'});
+  const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.04,rootMargin:'0px 0px 120px'});
   revealItems.forEach(el=>observer.observe(el));
-  const revealViewport=()=>revealItems.forEach(el=>{const r=el.getBoundingClientRect();if(r.top<window.innerHeight*1.25&&r.bottom>0)el.classList.add('visible')});
-  requestAnimationFrame(revealViewport);
-  setTimeout(revealViewport,250);
-  setTimeout(()=>revealItems.forEach(el=>el.classList.add('visible')),1800);
+  requestAnimationFrame(()=>revealItems.forEach(el=>{const r=el.getBoundingClientRect();if(r.top<window.innerHeight*1.25&&r.bottom>0)el.classList.add('visible')}));
 }else{revealItems.forEach(el=>el.classList.add('visible'));document.documentElement.classList.add('no-motion')}
 
+// Documentary opens in a premium modal so the homepage never turns into a black inline player.
 const videoPoster=document.querySelector('.video-poster');
-function playAISVideo(){if(!videoPoster)return;const id=videoPoster.dataset.videoId,start=videoPoster.dataset.videoStart||'22';videoPoster.innerHTML=`<iframe src="https://www.youtube.com/embed/${id}?start=${start}&autoplay=1&rel=0" title="T I Ahmadiyyah School Documentary" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;videoPoster.classList.remove('video-poster');videoPoster.classList.add('video-frame-active')}
-videoPoster?.addEventListener('click',playAISVideo);videoPoster?.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();playAISVideo()}});
+const videoModal=document.querySelector('.video-modal');
+const videoModalFrame=videoModal?.querySelector('.video-modal-frame');
+const videoModalClose=videoModal?.querySelector('.video-modal-close');
+function playAISVideo(){
+  if(!videoPoster||!videoModal||!videoModalFrame)return;
+  const id=videoPoster.dataset.videoId,start=videoPoster.dataset.videoStart||'22';
+  videoModalFrame.innerHTML=`<iframe src="https://www.youtube.com/embed/${id}?start=${start}&autoplay=1&rel=0&modestbranding=1&playsinline=1" title="T I Ahmadiyyah School Documentary" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+  videoModal.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeAISVideo(){if(!videoModal)return;videoModal.classList.remove('open');videoModalFrame.innerHTML='';document.body.style.overflow='';}
+videoPoster?.addEventListener('click',playAISVideo);
+videoPoster?.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();playAISVideo()}});
+videoModalClose?.addEventListener('click',closeAISVideo);
+videoModal?.addEventListener('click',e=>{if(e.target===videoModal)closeAISVideo()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAISVideo()});
 
 const assetPath=document.body && location.pathname.includes('/pages/')?'../assets/images/':'assets/images/';
 const stageData={
 'Early Years':null,
 'EARLY YEARS':{title:'A confident beginning.',copy:'A nurturing environment where children discover the joy of learning, build independence and develop strong social foundations.',img:assetPath+'ais-documentary-thumb.jpg'},
 'NURSERY':{title:'Curiosity starts here.',copy:'Play, language, exploration and relationships come together to create a strong foundation for lifelong learning.',img:assetPath+'ais-documentary-thumb.jpg'},
-'KG':{title:'Growing capable learners.',copy:'Children strengthen communication, early numeracy, creativity and confidence through purposeful learning experiences.',img:assetPath+'ais-campus-original.jpg'},
-'PRIMARY':{title:'Knowledge with purpose.',copy:'Learners build academic strength while developing critical thinking, responsibility, collaboration and confidence.',img:assetPath+'ais-campus-master-4k.jpg'},
-'JUNIOR HIGH SCHOOL':{title:'Ready for the next chapter.',copy:'Students deepen subject knowledge, leadership, discipline and independent thinking as they prepare for future pathways.',img:assetPath+'ais-campus-master-4k.jpg'}};
+'KG':{title:'Growing capable learners.',copy:'Children strengthen communication, early numeracy, creativity and confidence through purposeful learning experiences.',img:assetPath+'ais-campus-clean-4k.jpg'},
+'PRIMARY':{title:'Knowledge with purpose.',copy:'Learners build academic strength while developing critical thinking, responsibility, collaboration and confidence.',img:assetPath+'ais-campus-clean-4k.jpg'},
+'JUNIOR HIGH SCHOOL':{title:'Ready for the next chapter.',copy:'Students deepen subject knowledge, leadership, discipline and independent thinking as they prepare for future pathways.',img:assetPath+'ais-campus-clean-4k.jpg'}};
 const stages=document.querySelectorAll('.stage');
 const stageImg=document.querySelector('[data-stage-image]'),stageTitle=document.querySelector('[data-stage-title]'),stageCopy=document.querySelector('[data-stage-copy]'),stageLabel=document.querySelector('[data-stage-label]');
 function setStage(el){const d=stageData[el.dataset.stage];if(!d||!stageImg)return;stages.forEach(x=>x.classList.remove('active'));el.classList.add('active');stageImg.style.opacity='0';setTimeout(()=>{stageImg.src=d.img;stageTitle.textContent=d.title;stageCopy.textContent=d.copy;stageLabel.textContent=el.dataset.stage;stageImg.style.opacity='1'},160)}
 stages.forEach(s=>s.addEventListener('click',()=>setStage(s)));
 
-const facilityData={CLASSROOMS:['Learning spaces will be showcased with approved AIS classroom photography when supplied.',null],SCIENCE:['Science and laboratory imagery will be added from verified AIS photographs.',null],ICT:['ICT learning imagery will be added from verified AIS photographs.',null],LIBRARY:['Library imagery will be added from verified AIS photographs.',null],SPORTS:['Sports imagery will be added from verified AIS photographs.',null],CAMPUS:['The AIS campus at Bustan-e-Ahmad, Ashongman.','assets/images/ais-campus-master-4k.jpg']};
+const facilityData={CLASSROOMS:['Learning spaces will be showcased with approved AIS classroom photography when supplied.',null],SCIENCE:['Science and laboratory imagery will be added from verified AIS photographs.',null],ICT:['ICT learning imagery will be added from verified AIS photographs.',null],LIBRARY:['Library imagery will be added from verified AIS photographs.',null],SPORTS:['Sports imagery will be added from verified AIS photographs.',null],CAMPUS:['The AIS campus at Bustan-e-Ahmad, Ashongman.','assets/images/ais-campus-clean-4k.jpg']};
 const ft=document.querySelectorAll('.facility-tab'),fi=document.querySelector('[data-facility-image]'),fh=document.querySelector('[data-facility-title]'),fp=document.querySelector('[data-facility-copy]');
 function setFacility(t){const d=facilityData[t.dataset.facility];if(!d||!fi)return;ft.forEach(x=>x.classList.remove('active'));t.classList.add('active');const parent=fi.parentElement;fi.style.opacity='0';setTimeout(()=>{if(d[1]){fi.style.display='block';fi.src=d[1]}else{fi.style.display='none'}fh.textContent=t.dataset.facility;fp.textContent=d[0];if(!d[1]&&!parent.querySelector('.facility-placeholder')){const ph=document.createElement('div');ph.className='facility-placeholder';ph.innerHTML=`<div><span>Verified photography pending</span><strong>${t.dataset.facility}</strong><p>${d[0]}</p></div>`;parent.insertBefore(ph,parent.firstChild)}else if(d[1]){parent.querySelector('.facility-placeholder')?.remove()}fi.style.opacity='1'},160)}
 ft.forEach(t=>t.addEventListener('click',()=>setFacility(t)));
