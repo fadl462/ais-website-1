@@ -1,22 +1,39 @@
-# AIS Signature+ — T.I. Ahmadiyya International School
+# AIS Signature+ — Premium Refinement
 
-A premium, responsive static website prototype based on **PROTOTYPE 1 — AIS SIGNATURE+**.
+T.I. Ahmadiyya International School — Best Among Equals.
 
-## Included
+This is the refined static website build based on the AIS Signature+ / Prototype 1 direction.
+
+## What's included
+
 - Premium responsive homepage
-- Sticky/floating navigation
-- Admissions 2026/2027 conversion pathway
-- Interactive academic journey
+- Sticky glass navigation with mobile drawer
+- Full-screen editorial hero with admissions conversion card
+- AIS Difference interactive pillar cards
+- Interactive Every Stage Matters journey
+- Academic programme section
+- School Life image composition
 - Interactive facilities selector
-- School-life visual grid
-- News & events presentation
-- Filterable gallery + lightbox
-- About, Academics, School Life, Facilities, Admissions, News, Gallery and Contact pages
-- High-resolution cleaned AIS crest in `assets/images/ais-crest.png`
-- No build system required: upload the folder to GitHub Pages or any static host
+- Admissions conversion section
+- Parent perspective placeholder
+- News & Events editorial layout
+- Gallery masonry layout and lightbox
+- AIS Now → AIS Next digital evolution section
+- Full-screen final CTA
+- Responsive institutional sub-pages
+- Refined motion, hover states and scroll reveals
+- Premium crest asset generated from the supplied AIS crest image
 
-## Important before launch
-The prototype intentionally uses high-quality stock photography as temporary visual placeholders. Replace these with approved AIS photographs. Also connect the contact/admissions form to the school's chosen backend/email service and populate approved news, staff, events and policies.
+## Important content note
 
-## Brand direction
-Navy is dominant, white provides breathing space, and orange is reserved for action and emphasis. Motion is restrained and used for hierarchy, anticipation and feedback rather than decoration.
+The photography remains temporary web imagery in selected sections. Replace those URLs with approved AIS photography before the production launch.
+
+The testimonial and selected news/event entries are presentation-ready placeholders and should be replaced with AIS-approved content.
+
+## Deployment
+
+No build process is required. Upload the contents of this folder to GitHub Pages, Netlify, Vercel static hosting, or another static host.
+
+## Main entry
+
+`index.html`
