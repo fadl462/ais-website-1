@@ -1,3 +1,4 @@
+document.documentElement.classList.add('js');
 const nav=document.querySelector('.nav');
 const onScroll=()=>{if(nav)nav.classList.toggle('scrolled',window.scrollY>60)};
 window.addEventListener('scroll',onScroll,{passive:true});onScroll();
@@ -6,8 +7,19 @@ const menu=document.querySelector('.menu');
 const links=document.querySelector('.nav-links');
 if(menu&&links){menu.addEventListener('click',()=>{const open=links.classList.toggle('mobile-open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'×':'☰'});links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('mobile-open');menu.textContent='☰';menu.setAttribute('aria-expanded','false')}))}
 
-const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -30px'});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+const revealItems=[...document.querySelectorAll('.reveal')];
+if('IntersectionObserver' in window){
+  const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.06,rootMargin:'0px 0px 180px'});
+  revealItems.forEach(el=>observer.observe(el));
+  const revealViewport=()=>revealItems.forEach(el=>{const r=el.getBoundingClientRect();if(r.top<window.innerHeight*1.25&&r.bottom>0)el.classList.add('visible')});
+  requestAnimationFrame(revealViewport);
+  setTimeout(revealViewport,250);
+  setTimeout(()=>revealItems.forEach(el=>el.classList.add('visible')),1800);
+}else{revealItems.forEach(el=>el.classList.add('visible'));document.documentElement.classList.add('no-motion')}
+
+const videoPoster=document.querySelector('.video-poster');
+function playAISVideo(){if(!videoPoster)return;const id=videoPoster.dataset.videoId,start=videoPoster.dataset.videoStart||'22';videoPoster.innerHTML=`<iframe src="https://www.youtube.com/embed/${id}?start=${start}&autoplay=1&rel=0" title="T I Ahmadiyyah School Documentary" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;videoPoster.classList.remove('video-poster');videoPoster.classList.add('video-frame-active')}
+videoPoster?.addEventListener('click',playAISVideo);videoPoster?.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();playAISVideo()}});
 
 const assetPath=document.body && location.pathname.includes('/pages/')?'../assets/images/':'assets/images/';
 const stageData={
@@ -22,9 +34,10 @@ const stageImg=document.querySelector('[data-stage-image]'),stageTitle=document.
 function setStage(el){const d=stageData[el.dataset.stage];if(!d||!stageImg)return;stages.forEach(x=>x.classList.remove('active'));el.classList.add('active');stageImg.style.opacity='0';setTimeout(()=>{stageImg.src=d.img;stageTitle.textContent=d.title;stageCopy.textContent=d.copy;stageLabel.textContent=el.dataset.stage;stageImg.style.opacity='1'},160)}
 stages.forEach(s=>s.addEventListener('click',()=>setStage(s)));
 
-const facilityData={CLASSROOMS:['Learning spaces will be showcased here using approved AIS classroom photography.',assetPath+'ais-documentary-thumb.jpg'],SCIENCE:['Science and laboratory imagery will be added once approved AIS photographs are available.',assetPath+'ais-campus-master-4k.jpg'],ICT:['ICT learning imagery will be added once approved AIS photographs are available.',assetPath+'ais-campus-master-4k.jpg'],LIBRARY:['Library imagery will be added once approved AIS photographs are available.',assetPath+'ais-campus-master-4k.jpg'],SPORTS:['Sports imagery will be added once approved AIS photographs are available.',assetPath+'ais-campus-master-4k.jpg'],CAMPUS:['The AIS campus at Bustan-e-Ahmad, Ashongman.',assetPath+'ais-campus-master-4k.jpg']};
+const facilityData={CLASSROOMS:['Learning spaces will be showcased with approved AIS classroom photography when supplied.',null],SCIENCE:['Science and laboratory imagery will be added from verified AIS photographs.',null],ICT:['ICT learning imagery will be added from verified AIS photographs.',null],LIBRARY:['Library imagery will be added from verified AIS photographs.',null],SPORTS:['Sports imagery will be added from verified AIS photographs.',null],CAMPUS:['The AIS campus at Bustan-e-Ahmad, Ashongman.','assets/images/ais-campus-master-4k.jpg']};
 const ft=document.querySelectorAll('.facility-tab'),fi=document.querySelector('[data-facility-image]'),fh=document.querySelector('[data-facility-title]'),fp=document.querySelector('[data-facility-copy]');
-ft.forEach(t=>t.addEventListener('click',()=>{const d=facilityData[t.dataset.facility];if(!d)return;ft.forEach(x=>x.classList.remove('active'));t.classList.add('active');fi.style.opacity='0';setTimeout(()=>{fi.src=d[1];fh.textContent=t.dataset.facility;fp.textContent=d[0];fi.style.opacity='1'},160)}));
+function setFacility(t){const d=facilityData[t.dataset.facility];if(!d||!fi)return;ft.forEach(x=>x.classList.remove('active'));t.classList.add('active');const parent=fi.parentElement;fi.style.opacity='0';setTimeout(()=>{if(d[1]){fi.style.display='block';fi.src=d[1]}else{fi.style.display='none'}fh.textContent=t.dataset.facility;fp.textContent=d[0];if(!d[1]&&!parent.querySelector('.facility-placeholder')){const ph=document.createElement('div');ph.className='facility-placeholder';ph.innerHTML=`<div><span>Verified photography pending</span><strong>${t.dataset.facility}</strong><p>${d[0]}</p></div>`;parent.insertBefore(ph,parent.firstChild)}else if(d[1]){parent.querySelector('.facility-placeholder')?.remove()}fi.style.opacity='1'},160)}
+ft.forEach(t=>t.addEventListener('click',()=>setFacility(t)));
 
 const filters=document.querySelectorAll('.filter'),items=document.querySelectorAll('.gallery-item');
 filters.forEach(f=>f.addEventListener('click',()=>{filters.forEach(x=>x.classList.remove('active'));f.classList.add('active');const v=f.dataset.filter;items.forEach(i=>{i.style.display=(v==='all'||i.dataset.category===v)?'block':'none'})}));

@@ -26,3 +26,10 @@ No build process is required. Upload the contents of this folder to GitHub Pages
 
 
 Photography policy (v3): The homepage uses only the supplied/enhanced AIS campus photograph and the AIS documentary thumbnail. No unrelated school stock photography is presented as AIS. Sections requiring classroom, laboratory, ICT, library or sports photographs are intentionally marked for approved AIS photography rather than using misleading substitutes.
+
+
+### v4 correction pass
+- Added robust reveal fallback so content cannot remain blank if IntersectionObserver is delayed or unavailable.
+- Replaced auto-loading black YouTube iframe with a premium AIS documentary poster that loads the video only after user interaction.
+- Removed misleading academic/facility imagery and uses verified-media placeholders where AIS-specific photography is not available.
+- Reduced repetitive campus imagery across sections.
