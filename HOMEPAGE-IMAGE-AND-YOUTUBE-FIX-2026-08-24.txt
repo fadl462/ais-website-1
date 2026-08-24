@@ -1,0 +1,20 @@
+AIS HOMEPAGE — IMAGE + YOUTUBE THUMBNAIL FIX
+=============================================
+
+This revision corrects two homepage issues:
+
+1. AIS Journey / Early Years
+   - Removed the old documentary thumbnail from the default Early Years stage.
+   - Early Years now uses ais-early-years-enhanced-4k.jpg.
+   - Nursery also uses the supplied Early Years photograph.
+   - Kindergarten uses the supplied classroom photograph.
+   - Primary uses the supplied wide classroom photograph.
+   - Junior High School uses the supplied teacher/classroom photograph.
+
+2. AIS documentary video
+   - Restored the native YouTube thumbnail for the existing documentary video.
+   - Uses the official YouTube thumbnail endpoint for video cFExUdqsbL8.
+   - Keeps the existing click-to-open YouTube modal.
+   - Keeps the 16:9 presentation frame and refined overlay/play control.
+
+This package is intended to replace the current GitHub Pages website files.

@@ -46,11 +46,11 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAISVideo()});
 const assetPath=document.body && location.pathname.includes('/pages/')?'../assets/images/':'assets/images/';
 const stageData={
 'Early Years':null,
-'EARLY YEARS':{title:'A confident beginning.',copy:'A nurturing environment where children discover the joy of learning, build independence and develop strong social foundations.',img:assetPath+'ais-documentary-thumb.jpg'},
-'NURSERY':{title:'Curiosity starts here.',copy:'Play, language, exploration and relationships come together to create a strong foundation for lifelong learning.',img:assetPath+'ais-documentary-thumb.jpg'},
-'KG':{title:'Growing capable learners.',copy:'Children strengthen communication, early numeracy, creativity and confidence through purposeful learning experiences.',img:assetPath+'ais-campus-clean-4k.jpg'},
-'PRIMARY':{title:'Knowledge with purpose.',copy:'Learners build academic strength while developing critical thinking, responsibility, collaboration and confidence.',img:assetPath+'ais-campus-clean-4k.jpg'},
-'JUNIOR HIGH SCHOOL':{title:'Ready for the next chapter.',copy:'Students deepen subject knowledge, leadership, discipline and independent thinking as they prepare for future pathways.',img:assetPath+'ais-campus-clean-4k.jpg'}};
+'EARLY YEARS':{title:'A confident beginning.',copy:'A nurturing environment where children discover the joy of learning, build independence and develop strong social foundations.',img:assetPath+'ais-early-years-enhanced-4k.jpg'},
+'NURSERY':{title:'Curiosity starts here.',copy:'Play, language, exploration and relationships come together to create a strong foundation for lifelong learning.',img:assetPath+'ais-early-years-enhanced-4k.jpg'},
+'KG':{title:'Growing capable learners.',copy:'Children strengthen communication, early numeracy, creativity and confidence through purposeful learning experiences.',img:assetPath+'ais-documentary-classroom-enhanced-4k.jpg'},
+'PRIMARY':{title:'Knowledge with purpose.',copy:'Learners build academic strength while developing critical thinking, responsibility, collaboration and confidence.',img:assetPath+'ais-classroom-wide-enhanced-4k.jpg'},
+'JUNIOR HIGH SCHOOL':{title:'Ready for the next chapter.',copy:'Students deepen subject knowledge, leadership, discipline and independent thinking as they prepare for future pathways.',img:assetPath+'ais-classroom-teacher-enhanced-4k.jpg'}};
 const stages=document.querySelectorAll('.stage');
 const stageImg=document.querySelector('[data-stage-image]'),stageTitle=document.querySelector('[data-stage-title]'),stageCopy=document.querySelector('[data-stage-copy]'),stageLabel=document.querySelector('[data-stage-label]');
 function setStage(el){const d=stageData[el.dataset.stage];if(!d||!stageImg)return;stages.forEach(x=>x.classList.remove('active'));el.classList.add('active');stageImg.style.opacity='0';setTimeout(()=>{stageImg.src=d.img;stageTitle.textContent=d.title;stageCopy.textContent=d.copy;stageLabel.textContent=el.dataset.stage;stageImg.style.opacity='1'},160)}
