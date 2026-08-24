@@ -1,20 +1,14 @@
-AIS NEWS ARTICLE TEMPLATE UPDATE — 24 AUGUST 2026
+AIS NEWS — Management Transition Story Fix
 
-Replace these files in the existing ais-website-1 repository:
+Updated: 24 August 2026
 
-1. pages/news-management-transition.html
-2. pages/news-new-vision.html
-3. assets/css/news-article.css
+This patch corrects the Management Transition article so it uses the dedicated management-transition lead photography consistently in the editorial hero and the article body. It also adds the missing lead image to the story content.
 
-The two article pages now load the shared news-article.css template after styles.css.
+Replace the matching files in the AIS repository:
+- pages/news-management-transition.html
+- assets/css/news-article.css
 
-The template:
-- gives every AIS story a consistent editorial hero layout;
-- uses the correct text-free lead image for each story;
-- keeps the photograph visibly dominant instead of covering it with an oversized blue panel;
-- keeps the headline/deck readable without obscuring the whole image;
-- keeps the article body and sidebar inside the site grid;
-- is responsive for tablet/mobile;
-- is reusable for future stories using the same article hero classes.
+The image asset already exists in the repository:
+- assets/images/news/management-transition-lead-v22.jpg
 
-No generated images are included in this update. The template uses existing images already in the repository.
+No new/generated imagery is included.
