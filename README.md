@@ -14,3 +14,7 @@ Homepage media refinement based on the official T.I. Ahmadiyya International Sch
 
 ## Official AIS News
 The two August 2026 management releases are presented as editorial news stories on the website. The original flyer artwork is not used as article content; the stories are written from the supplied official communications and retain their source facts.
+
+
+### News lead imagery
+The two official AIS communications use purpose-built 16:9 editorial lead images rather than reproducing the source flyers. The lead visuals use the verified AIS campus image, AIS crest, and restrained navy/orange editorial treatment.
