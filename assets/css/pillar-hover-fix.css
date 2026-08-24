@@ -1,0 +1,45 @@
+/* AIS HOMEPAGE — HOVER REFINEMENT PATCH */
+
+.pillar{
+  overflow:hidden;
+  transition:background .35s ease, box-shadow .35s ease, border-color .35s ease;
+}
+
+.pillar:before{
+  background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.018) 52%,transparent 80%);
+  transition:opacity .35s ease;
+}
+
+.pillar:after{
+  height:3px;
+  transition:width .35s ease, background .35s ease;
+}
+
+.pillar:hover{
+  background:linear-gradient(145deg,#102f59,#0b2852);
+  transform:none;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08),
+             inset 0 -1px 0 rgba(255,255,255,.04),
+             0 18px 40px rgba(0,0,0,.16);
+}
+
+.pillar:hover:before{
+  opacity:1;
+}
+
+.pillar:hover .num{
+  color:#ff9a64;
+}
+
+.pillar:hover h3{
+  color:#fff !important;
+}
+
+.pillar:hover p{
+  color:rgba(255,255,255,.76) !important;
+}
+
+.pillar:hover:after{
+  width:72px;
+  background:#f05a1b;
+}

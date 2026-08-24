@@ -1,14 +1,21 @@
-AIS NEWS — Management Transition Story Fix
+AIS HOMEPAGE — PILLAR HOVER FIX
+================================
 
-Updated: 24 August 2026
+Upload:
+assets/css/pillar-hover-fix.css
 
-This patch corrects the Management Transition article so it uses the dedicated management-transition lead photography consistently in the editorial hero and the article body. It also adds the missing lead image to the story content.
+Then add this stylesheet AFTER the existing homepage-image-overrides.css
+in index.html:
 
-Replace the matching files in the AIS repository:
-- pages/news-management-transition.html
-- assets/css/news-article.css
+<link rel="stylesheet" href="assets/css/pillar-hover-fix.css">
 
-The image asset already exists in the repository:
-- assets/images/news/management-transition-lead-v22.jpg
+The fix:
+- prevents the hover card from jumping upward
+- gives the hovered card a controlled lighter-navy treatment
+- forces the heading to remain white and readable
+- brightens the description text
+- retains the orange accent
+- adds a restrained premium shadow/highlight
 
-No new/generated imagery is included.
+This patch is deliberately isolated so it does not disturb the rest of the
+homepage design.
