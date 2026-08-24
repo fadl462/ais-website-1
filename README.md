@@ -18,3 +18,7 @@ The two August 2026 management releases are presented as editorial news stories 
 
 ### News lead imagery
 The two official AIS communications use purpose-built 16:9 editorial lead images rather than reproducing the source flyers. The lead visuals use the verified AIS campus image, AIS crest, and restrained navy/orange editorial treatment.
+
+
+### Approved news lead artwork — v17
+The Management Transition and New Vision stories use the user-approved lead artwork supplied during the AIS website review.
