@@ -26,3 +26,6 @@ The Management Transition and New Vision stories use the user-approved lead artw
 
 ### v20 news lead image cleanup
 Lead artwork for the New Vision and Management Transition stories has been replaced with clean, text-free editorial crops so the website captions/headlines remain the only typography over the images.
+
+### v23 classroom editorial image
+The New Vision lead image now uses a sharp, text-free 16:9 classroom photograph derived from the supplied AIS documentary imagery, professionally enhanced for web use. The image is used consistently on the News landing page and New Vision article hero so the editorial headline remains the only text competing with the photograph.
