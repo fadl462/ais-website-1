@@ -1,0 +1,8 @@
+AIS HOMEPAGE — PHOTOGRAPHY PASS 2
+
+Changes in this update:
+- Replaced the black direct YouTube iframe on the homepage with a real AIS documentary poster using supplied high-resolution imagery. The film now opens in a modal only when requested.
+- Consolidated the duplicate School Life sections into one authentic photo-led section using supplied AIS documentary images.
+- Expanded the homepage Gallery with authentic campus, classroom, Early Years and sports imagery supplied for this project.
+- Kept facility tabs honest: no unverified science/ICT/library photographs were invented; those tabs retain the verified-photography-pending state until genuine AIS photographs are supplied.
+- Preserved the existing typography, layout, navigation, admissions flow and overall visual system.

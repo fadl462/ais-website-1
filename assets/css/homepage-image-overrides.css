@@ -1,0 +1,44 @@
+/* AIS HOMEPAGE — AUTHENTIC DOCUMENTARY PHOTOGRAPHY PASS 2 */
+.hero-media{
+  background-image:
+    linear-gradient(90deg,rgba(3,14,32,.96) 0%,rgba(3,14,32,.72) 40%,rgba(3,14,32,.20) 78%),
+    linear-gradient(0deg,rgba(3,14,32,.66),transparent 48%),
+    url('../images/ais-campus-documentary-enhanced-4k.jpg');
+  background-size:cover;
+  background-position:center 52%;
+}
+
+.video-poster{
+  position:relative; display:block; width:100%; padding:0; border:0; cursor:pointer;
+  text-align:left; color:#fff; background:#061a39; overflow:hidden;
+}
+.video-poster img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s ease;}
+.video-poster:hover img{transform:scale(1.035);}
+.video-poster-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,14,32,.78),rgba(3,14,32,.18) 70%),linear-gradient(0deg,rgba(3,14,32,.72),transparent 55%);}
+.play-button{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:78px;height:78px;border-radius:50%;display:grid;place-items:center;background:#f05a1b;color:#fff;font-size:1.25rem;box-shadow:0 18px 45px rgba(0,0,0,.25);transition:transform .25s ease,background .25s ease;}
+.video-poster:hover .play-button{transform:translate(-50%,-50%) scale(1.06);}
+.video-poster-meta{position:absolute;left:28px;bottom:26px;display:flex;flex-direction:column;gap:5px;}
+.video-poster-meta strong{font-family:'Manrope';font-size:1.05rem;letter-spacing:-.02em;}
+.video-poster-meta small{font-size:.68rem;color:rgba(255,255,255,.72);font-weight:800;letter-spacing:.08em;text-transform:uppercase;}
+.video-trigger{border:0;cursor:pointer;}
+.video-modal{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;padding:28px;background:rgba(2,10,24,.82);backdrop-filter:blur(10px);}
+.video-modal.open{display:flex;}
+.video-modal-dialog{position:relative;width:min(1100px,100%);background:#000;border-radius:24px;overflow:hidden;box-shadow:0 30px 100px rgba(0,0,0,.45);}
+.video-modal-frame{aspect-ratio:16/9;}
+.video-modal-frame iframe{display:block;width:100%;height:100%;border:0;}
+.video-modal-close{position:absolute;right:14px;top:14px;z-index:2;width:44px;height:44px;border:1px solid rgba(255,255,255,.2);border-radius:50%;background:rgba(3,14,32,.72);color:#fff;font-size:1.7rem;line-height:1;cursor:pointer;}
+
+.photo-life-grid .life-card{min-height:260px;}
+.photo-life-grid .life-card.large{min-height:536px;}
+.photo-life-grid .life-card .overlay .eyebrow{margin-bottom:8px;}
+.photo-life-grid .life-card .overlay h3{max-width:520px;}
+
+.gallery-grid .image-item{background:#061a39;}
+.gallery-grid .image-item img{display:block;min-height:220px;object-fit:cover;}
+
+@media(max-width:520px){
+  .play-button{width:62px;height:62px;font-size:1rem;}
+  .video-poster-meta{left:18px;bottom:18px;}
+  .video-poster-meta strong{font-size:.9rem;}
+  .photo-life-grid .life-card.large{min-height:360px;}
+}

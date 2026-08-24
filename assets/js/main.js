@@ -16,20 +16,29 @@ if('IntersectionObserver' in window){
 }else{revealItems.forEach(el=>el.classList.add('visible'));document.documentElement.classList.add('no-motion')}
 
 // Documentary opens in a premium modal so the homepage never turns into a black inline player.
-const videoPoster=document.querySelector('.video-poster');
+const videoTriggers=document.querySelectorAll('.video-trigger,.video-poster');
 const videoModal=document.querySelector('.video-modal');
 const videoModalFrame=videoModal?.querySelector('.video-modal-frame');
 const videoModalClose=videoModal?.querySelector('.video-modal-close');
-function playAISVideo(){
-  if(!videoPoster||!videoModal||!videoModalFrame)return;
-  const id=videoPoster.dataset.videoId,start=videoPoster.dataset.videoStart||'22';
+function playAISVideo(trigger){
+  if(!videoModal||!videoModalFrame)return;
+  const id=trigger?.dataset.videoId||'cFExUdqsbL8';
+  const start=trigger?.dataset.videoStart||'22';
   videoModalFrame.innerHTML=`<iframe src="https://www.youtube.com/embed/${id}?start=${start}&autoplay=1&rel=0&modestbranding=1&playsinline=1" title="T I Ahmadiyyah School Documentary" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
   videoModal.classList.add('open');
+  videoModal.setAttribute('aria-hidden','false');
   document.body.style.overflow='hidden';
 }
-function closeAISVideo(){if(!videoModal)return;videoModal.classList.remove('open');videoModalFrame.innerHTML='';document.body.style.overflow='';}
-videoPoster?.addEventListener('click',playAISVideo);
-videoPoster?.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();playAISVideo()}});
+function closeAISVideo(){
+  if(!videoModal)return;
+  videoModal.classList.remove('open');
+  videoModal.setAttribute('aria-hidden','true');
+  if(videoModalFrame)videoModalFrame.innerHTML='';
+  document.body.style.overflow='';
+}
+videoTriggers.forEach(t=>{
+  t.addEventListener('click',()=>playAISVideo(t));
+});
 videoModalClose?.addEventListener('click',closeAISVideo);
 videoModal?.addEventListener('click',e=>{if(e.target===videoModal)closeAISVideo()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAISVideo()});
