@@ -1,0 +1,12 @@
+AIS HOMEPAGE — ORIGINAL YOUTUBE THUMBNAIL UPDATE
+===============================================
+
+The homepage documentary poster has been restored to the original YouTube
+video thumbnail for video ID cFExUdqsbL8.
+
+The custom classroom photograph remains available elsewhere on the homepage,
+but the documentary section now uses YouTube's own thumbnail so it visually
+matches the native YouTube embed/preview the site originally used.
+
+The play poster still opens the documentary in the existing modal player at
+22 seconds, preserving the previous interaction.
