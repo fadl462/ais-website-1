@@ -1,21 +1,16 @@
-AIS HOMEPAGE — PILLAR HOVER FIX
-================================
+AIS WEBSITE — ACADEMICS IMAGE UPDATE
+=======================================
 
-Upload:
-assets/css/pillar-hover-fix.css
+Replace/upload:
+pages/academics.html
 
-Then add this stylesheet AFTER the existing homepage-image-overrides.css
-in index.html:
+Change made:
+- Replaced the unsuitable/cropped "ais-documentary-thumb.jpg" image in the
+  "From early years to JHS." feature with the existing high-resolution
+  AIS documentary classroom image:
+  ../assets/images/ais-campus-documentary-enhanced-4k.jpg
+- Removed the temporary "Replace with approved AIS photography" label.
+- Kept the rest of the Academics page content and structure intact.
 
-<link rel="stylesheet" href="assets/css/pillar-hover-fix.css">
-
-The fix:
-- prevents the hover card from jumping upward
-- gives the hovered card a controlled lighter-navy treatment
-- forces the heading to remain white and readable
-- brightens the description text
-- retains the orange accent
-- adds a restrained premium shadow/highlight
-
-This patch is deliberately isolated so it does not disturb the rest of the
-homepage design.
+The image already exists in the repository, so no new external image dependency
+is introduced.
