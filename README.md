@@ -10,3 +10,7 @@ Homepage media refinement based on the official T.I. Ahmadiyya International Sch
   - Career Day Celebration — 14 Mar 2018
 - Kept actual AIS imagery only where a verified local image asset is available.
 - No unrelated school photography is used.
+
+
+## Official AIS News
+The two August 2026 management releases are presented as editorial news stories on the website. The original flyer artwork is not used as article content; the stories are written from the supplied official communications and retain their source facts.
