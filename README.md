@@ -22,3 +22,7 @@ The two official AIS communications use purpose-built 16:9 editorial lead images
 
 ### Approved news lead artwork — v17
 The Management Transition and New Vision stories use the user-approved lead artwork supplied during the AIS website review.
+
+
+### v20 news lead image cleanup
+Lead artwork for the New Vision and Management Transition stories has been replaced with clean, text-free editorial crops so the website captions/headlines remain the only typography over the images.
