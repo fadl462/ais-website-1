@@ -1,0 +1,21 @@
+AIS WEBSITE — MOBILE RESPONSIVE UPDATE
+25 August 2026
+
+This package is the complete Git-ready AIS website with a mobile experience pass applied across all 11 HTML pages.
+
+Included:
+- Responsive mobile navigation with working hamburger menu
+- Mobile typography and spacing refinements
+- Single-column layouts where appropriate
+- Responsive homepage hero, cards, gallery, admissions and CTA sections
+- Responsive Academics feature image and programme layout
+- Responsive School Life and Facilities sections
+- Responsive Newsroom and both story/article pages
+- Responsive contact form and information cards
+- Responsive footer and touch-friendly controls
+- Mobile-specific image sizing/cropping to prevent overflow
+- Reduced-motion support for users who prefer it
+- Updated Academics feature image
+- Latest reusable News article template files retained
+
+Upload the contents of this ZIP to the GitHub Pages repository root, replacing the existing site files.
