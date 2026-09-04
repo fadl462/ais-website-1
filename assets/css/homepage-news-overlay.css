@@ -1,0 +1,39 @@
+/* AIS homepage newsroom — visual overlay treatment. Text stays directly on photography. */
+#news .homepage-news-overlay{grid-template-columns:1.45fr .55fr;gap:20px;align-items:stretch}
+#news .homepage-news-overlay .featured-news{min-height:540px;border-radius:26px;overflow:hidden;position:relative;background-image:url("../images/news/new-vision-lead-v21.jpg")!important;background-size:cover;background-position:center}
+#news .homepage-news-overlay .featured-news:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(34,19,15,.05) 18%,rgba(34,19,15,.84) 100%);z-index:0}
+#news .homepage-news-overlay .featured-news:after{display:none}
+#news .homepage-news-overlay .featured-news>*{position:relative;z-index:1}
+#news .homepage-news-overlay .featured-news .copy{left:30px;right:30px;bottom:30px}
+#news .homepage-news-overlay .featured-news h3,#news .homepage-news-overlay .featured-news p{color:#fff!important}
+#news .homepage-news-overlay .featured-news h3{font-size:clamp(1.8rem,3vw,3.4rem);line-height:.98;margin:12px 0 18px;max-width:780px}
+#news .homepage-news-overlay .featured-news p{max-width:760px;margin:0 0 20px;line-height:1.6;color:rgba(255,255,255,.88)!important}
+#news .homepage-news-overlay .editorial-mark{position:absolute;top:28px;left:28px;right:28px;z-index:2;display:flex;justify-content:space-between;align-items:flex-start;color:#fff}
+#news .homepage-news-overlay .editorial-mark span{font-size:.62rem;font-weight:900;letter-spacing:.14em;color:#ffd1bf}
+#news .homepage-news-overlay .editorial-mark strong{font-size:4rem;line-height:1;color:rgba(255,255,255,.18)}
+#news .homepage-news-overlay .news-list{display:grid;grid-template-rows:1fr 1fr;gap:20px;border:0;background:transparent}
+#news .homepage-news-overlay .news-item{position:relative;min-height:260px;padding:0!important;border:0;border-radius:26px;overflow:hidden;background-size:cover;background-position:center;box-shadow:var(--shadow-peach);transition:transform .35s ease,box-shadow .35s ease}
+#news .homepage-news-overlay .news-item:nth-child(1){background-image:url("../images/news/management-transition-lead-v21.jpg")}
+#news .homepage-news-overlay .news-item:nth-child(2){background-image:url("../images/news/new-vision-lead-v22.jpg")}
+#news .homepage-news-overlay .news-item:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(34,19,15,.08) 15%,rgba(34,19,15,.88) 100%);z-index:0}
+#news .homepage-news-overlay .news-item:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(150,84,65,.18)}
+#news .homepage-news-overlay .news-item-link>a{position:absolute;inset:0;display:flex;align-items:flex-end;gap:12px;padding:24px;color:#fff!important;text-decoration:none;z-index:1}
+#news .homepage-news-overlay .news-item-link>a>div:last-child{min-width:0}
+#news .homepage-news-overlay .news-item .date{position:absolute;top:22px;left:24px;color:#ffd1bf!important;font-size:.62rem;font-weight:900;letter-spacing:.12em}
+#news .homepage-news-overlay .news-item h4{font-size:1.35rem;line-height:1.02;color:#fff!important;margin:0 0 9px;max-width:290px}
+#news .homepage-news-overlay .news-item p{font-size:.82rem;line-height:1.45;color:rgba(255,255,255,.82)!important;margin:0 0 8px;max-width:300px}
+#news .homepage-news-overlay .news-item span{font-size:.7rem;font-weight:900;color:#fff!important;letter-spacing:.04em}
+@media(max-width:820px){
+  #news .homepage-news-overlay{grid-template-columns:1fr;gap:16px}
+  #news .homepage-news-overlay .featured-news{min-height:480px;border-radius:20px}
+  #news .homepage-news-overlay .featured-news .copy{left:22px;right:22px;bottom:22px}
+  #news .homepage-news-overlay .editorial-mark{top:22px;left:22px;right:22px}
+  #news .homepage-news-overlay .editorial-mark strong{font-size:3rem}
+  #news .homepage-news-overlay .news-list{grid-template-rows:none;grid-template-columns:1fr 1fr;gap:16px}
+  #news .homepage-news-overlay .news-item{min-height:270px;border-radius:20px}
+}
+@media(max-width:520px){
+  #news .homepage-news-overlay .news-list{grid-template-columns:1fr}
+  #news .homepage-news-overlay .news-item{min-height:250px}
+  #news .homepage-news-overlay .featured-news h3{font-size:2rem}
+}
