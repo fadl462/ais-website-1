@@ -277,3 +277,55 @@ section.section.next .bottom{color:#765e57 !important;font-size:.72rem;margin-to
 
 /* Documentary poster: use the supplied AIS/YouTube thumbnail locally so it remains reliable on GitHub Pages. */
 .video-poster img{object-position:center center}
+
+/* AIS — BLUE-BLACK MICRO ACCENT
+   #0F1E45 is intentionally restrained: a precision accent, never a dominant brand surface. */
+:root{--blue-black:#0F1E45;--blue-black-soft:rgba(15,30,69,.12);--blue-black-line:rgba(15,30,69,.18)}
+
+/* Precision accents: introduce depth without disturbing the Peach + White identity. */
+.eyebrow{letter-spacing:.13em}
+.eyebrow:before{background:var(--blue-black)!important}
+.link-arrow:hover{color:var(--blue-black)}
+.nav-links a.active{color:var(--blue-black)!important}
+.nav-links a.active:after{background:var(--blue-black)!important}
+
+/* Small institutional details */
+.glance-card .kicker,
+.news-item .category,
+.article-aside .eyebrow,
+.story-kicker{color:var(--blue-black)!important}
+.glance-card:hover{border-color:var(--blue-black-line)!important}
+
+/* Use Blue Black for selected controls only; Peach remains the primary action colour. */
+.btn-dark{background:var(--blue-black)!important}
+.btn-dark:hover{background:#17295d!important}
+.btn-light:hover{border-color:var(--blue-black-line)!important;color:var(--blue-black)!important}
+
+/* A restrained premium detail at section transitions. */
+.section-head:after{background:linear-gradient(90deg,var(--blue-black),transparent)!important;opacity:.18}
+.stage.active:after{background:var(--blue-black)!important;box-shadow:0 0 0 6px rgba(15,30,69,.10)!important}
+
+/* Forms: blue-black becomes the focus/keyboard cue, while Peach remains the visual brand. */
+input:focus,textarea:focus,select:focus{border-color:var(--blue-black)!important;box-shadow:0 0 0 4px rgba(15,30,69,.10)!important}
+
+/* Documentary/video controls get a refined institutional accent. */
+.video-card .play,
+.video-card .play-button{border-color:rgba(255,255,255,.72)}
+.video-card:hover .play,
+.video-card:hover .play-button{background:var(--blue-black);border-color:var(--blue-black)}
+
+/* Footer: tiny blue-black signature line rather than a colour takeover. */
+.footer{position:relative}
+.footer:before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,var(--blue-black) 0 14%,transparent 14% 100%);opacity:.9}
+
+/* Mobile: retain the same restrained accent treatment and keep the menu overwhelmingly white/peach. */
+@media(max-width:900px){
+  .nav-links a.active{color:var(--blue-black)!important}
+  .nav-links a.active:after{background:var(--blue-black)!important}
+  .nav-links{box-shadow:0 24px 54px rgba(15,30,69,.10)!important}
+}
+
+@media(max-width:520px){
+  .eyebrow:before{width:18px!important}
+  .footer:before{height:2px;background:linear-gradient(90deg,var(--blue-black) 0 22%,transparent 22% 100%)}
+}
