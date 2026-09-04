@@ -1,12 +1,3 @@
-AIS HOMEPAGE — ORIGINAL YOUTUBE THUMBNAIL UPDATE
-===============================================
+AIS homepage documentary thumbnail update
 
-The homepage documentary poster has been restored to the original YouTube
-video thumbnail for video ID cFExUdqsbL8.
-
-The custom classroom photograph remains available elsewhere on the homepage,
-but the documentary section now uses YouTube's own thumbnail so it visually
-matches the native YouTube embed/preview the site originally used.
-
-The play poster still opens the documentary in the existing modal player at
-22 seconds, preserving the previous interaction.
+The homepage documentary now uses YouTube's high-quality standard thumbnail endpoint (hqdefault.jpg) for video ID cFExUdqsbL8. If the external thumbnail cannot load, the page falls back to the local authentic AIS documentary image so the video card never renders as a broken/blank image.

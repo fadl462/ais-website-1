@@ -196,3 +196,34 @@ input:focus,textarea:focus,select:focus{border-color:var(--peach-strong)!importa
   .cta-final{min-height:450px;padding:55px 0}
   .cta-final h2{font-size:clamp(2.7rem,14vw,4.4rem);line-height:.94}
 }
+
+/* AIS NOW → AIS NEXT: explicit high-contrast branded surface */
+section.section.next{
+  position:relative;
+  isolation:isolate;
+  background:linear-gradient(135deg,#e96749 0%,#f68163 48%,#ffb49f 100%) !important;
+  color:#fff !important;
+  overflow:hidden;
+}
+section.section.next::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:radial-gradient(circle at 18% 10%,rgba(255,255,255,.16),transparent 32%),radial-gradient(circle at 85% 80%,rgba(111,40,26,.14),transparent 34%);
+  pointer-events:none;
+}
+section.section.next .container{position:relative;z-index:1}
+section.section.next h2,
+section.section.next h3,
+section.section.next p,
+section.section.next .bottom,
+section.section.next .evolve{color:#fff !important}
+section.section.next .eyebrow{color:#fff7f3 !important}
+section.section.next .next-card{
+  background:rgba(255,255,255,.13) !important;
+  border:1px solid rgba(255,255,255,.38) !important;
+  box-shadow:0 22px 60px rgba(117,45,30,.15);
+  backdrop-filter:blur(14px);
+}
+section.section.next .next-card li{color:rgba(255,255,255,.92) !important;border-top-color:rgba(255,255,255,.25) !important}
