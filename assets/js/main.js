@@ -75,3 +75,26 @@ function closeLightbox(){lb?.classList.remove('open');document.body.style.overfl
 lb?.addEventListener('click',e=>{if(e.target===lb||e.target.closest('button'))closeLightbox()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox()});
 
 Array.from(document.querySelectorAll('a[href^="#"]')).forEach(a=>a.addEventListener('click',e=>{const href=a.getAttribute('href');if(href==='#')return;const el=document.querySelector(href);if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'})}}));
+
+// Global page navigation state — keeps the selected menu item visibly active
+// on every page, including News article pages and the mobile menu.
+(function setActiveNav(){
+  const navLinks=document.querySelectorAll('.nav-links a');
+  if(!navLinks.length)return;
+  const path=window.location.pathname.replace(/\\/g,'/');
+  const file=(path.split('/').pop()||'index.html').toLowerCase();
+  let activeKey=file;
+  if(file==='index.html'||file==='') activeKey='home';
+  else if(file.startsWith('news-')) activeKey='news.html';
+  navLinks.forEach(a=>{
+    a.classList.remove('active');
+    a.removeAttribute('aria-current');
+    const href=a.getAttribute('href')||'';
+    const target=(new URL(href,window.location.href).pathname.split('/').pop()||'index.html').toLowerCase();
+    const isActive=(activeKey==='news.html' && target==='news.html') || target===activeKey;
+    if(isActive){
+      a.classList.add('active');
+      a.setAttribute('aria-current','page');
+    }
+  });
+})();
