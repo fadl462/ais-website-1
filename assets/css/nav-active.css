@@ -1,51 +1,104 @@
-/* AIS NAVIGATION — CLEAR ACTIVE PAGE STATE
-   The active page is intentionally obvious but refined: Blue Black provides
-   institutional precision, while Peach remains the visual brand accent. */
+/* AIS NAVIGATION — REFINED, UNMISTAKABLE ACTIVE STATE
+   Peach remains the brand accent; Blue Black is reserved for the selected state
+   once the navigation becomes light, so the header never loses contrast. */
 .nav-links a.active,
 .nav-links a[aria-current="page"]{
-  color:#0F1E45 !important;
   opacity:1 !important;
   font-weight:900 !important;
+  position:relative;
 }
-.nav-links a.active:after,
-.nav-links a[aria-current="page"]:after{
+
+/* Hero / transparent header: keep the active label white and let Peach do the signalling. */
+.nav:not(.scrolled) .nav-links a.active,
+.nav:not(.scrolled) .nav-links a[aria-current="page"]{
+  color:#fff !important;
+  text-shadow:0 1px 10px rgba(0,0,0,.10);
+}
+.nav:not(.scrolled) .nav-links a.active:after,
+.nav:not(.scrolled) .nav-links a[aria-current="page"]:after{
   right:0 !important;
-  width:100%;
-  height:2px;
+  width:100% !important;
+  height:3px !important;
+  bottom:-9px !important;
   background:#F46B4A !important;
   transform:scaleX(1) !important;
   transform-origin:center;
-  box-shadow:0 2px 8px rgba(244,107,74,.20);
+  border-radius:999px;
+  box-shadow:0 3px 10px rgba(244,107,74,.35);
 }
-.nav-links a.active:before,
-.nav-links a[aria-current="page"]:before{
+.nav:not(.scrolled) .nav-links a.active:before,
+.nav:not(.scrolled) .nav-links a[aria-current="page"]:before{
   content:"";
   position:absolute;
-  left:-8px;
-  top:50%;
+  left:50%;
+  bottom:-14px;
+  width:4px;
+  height:4px;
+  border-radius:50%;
+  background:#F46B4A;
+  transform:translateX(-50%);
+  box-shadow:0 0 0 3px rgba(244,107,74,.12);
+}
+
+/* Scrolled/light header: Blue Black becomes the active label, with Peach underneath. */
+.nav.scrolled .nav-links a.active,
+.nav.scrolled .nav-links a[aria-current="page"]{
+  color:#0F1E45 !important;
+}
+.nav.scrolled .nav-links a.active:after,
+.nav.scrolled .nav-links a[aria-current="page"]:after{
+  right:0 !important;
+  width:100% !important;
+  height:3px !important;
+  bottom:-9px !important;
+  background:#F46B4A !important;
+  transform:scaleX(1) !important;
+  transform-origin:center;
+  border-radius:999px;
+  box-shadow:0 3px 10px rgba(244,107,74,.25);
+}
+.nav.scrolled .nav-links a.active:before,
+.nav.scrolled .nav-links a[aria-current="page"]:before{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:-14px;
   width:4px;
   height:4px;
   border-radius:50%;
   background:#0F1E45;
-  transform:translateY(-50%);
+  transform:translateX(-50%);
 }
+
+/* Mobile menu: a quiet Peach wash + Blue Black text makes the current page obvious. */
 @media(max-width:820px){
   .nav-links a.active,
-  .nav-links a[aria-current="page"]{
+  .nav-links a[aria-current="page"],
+  .nav.scrolled .nav-links a.active,
+  .nav.scrolled .nav-links a[aria-current="page"],
+  .nav:not(.scrolled) .nav-links a.active,
+  .nav:not(.scrolled) .nav-links a[aria-current="page"]{
     width:100%;
-    padding:12px 13px !important;
+    padding:12px 14px !important;
     margin-left:0;
     border-radius:12px;
-    background:linear-gradient(90deg,rgba(244,107,74,.10),rgba(244,107,74,.035));
+    background:linear-gradient(90deg,rgba(244,107,74,.13),rgba(244,107,74,.035));
     color:#0F1E45 !important;
+    text-shadow:none;
     box-shadow:inset 3px 0 0 #F46B4A;
   }
   .nav-links a.active:after,
-  .nav-links a[aria-current="page"]:after{
-    display:none !important;
-  }
+  .nav-links a[aria-current="page"]:after,
   .nav-links a.active:before,
   .nav-links a[aria-current="page"]:before{
-    display:none;
+    display:none !important;
+  }
+}
+
+@media(max-width:520px){
+  .nav-links a.active,
+  .nav-links a[aria-current="page"]{
+    padding:13px 14px !important;
+    border-radius:11px;
   }
 }
