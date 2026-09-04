@@ -29,3 +29,5 @@ Lead artwork for the New Vision and Management Transition stories has been repla
 
 ### v23 classroom editorial image
 The New Vision lead image now uses a sharp, text-free 16:9 classroom photograph derived from the supplied AIS documentary imagery, professionally enhanced for web use. The image is used consistently on the News landing page and New Vision article hero so the editorial headline remains the only text competing with the photograph.
+## Brand palette update
+The current visual system uses three core colours: peach, white, and blue-black `#0F1E45`. The blue-black layer is implemented in `assets/css/blue-black-theme.css` and is applied site-wide across desktop and phone breakpoints.
