@@ -1,0 +1,25 @@
+AIS — Mobile Responsive Pro Update
+Date: 2026-09-04
+
+Implemented a final phone-first responsive layer across the complete site.
+
+Coverage:
+- Homepage + all inner pages + newsroom articles
+- 320px / 360px / 375px / 390px / 412px-friendly spacing and type scaling
+- Safe mobile navigation with accessible menu states, Escape-to-close and background scroll lock
+- Better touch targets for buttons, links and form controls
+- Mobile hero composition and admissions card spacing
+- Single-column content systems where appropriate
+- Refined cards, academic panels, journey/timeline, facilities, admissions, forms and footer
+- Newsroom and editorial article layouts optimized for narrow screens
+- Gallery/lightbox mobile sizing
+- Horizontal overflow prevention and mobile-safe typography
+- Reduced-motion support
+- Early Years journey image now remains the approved Early Years image when the stage is tapped
+- About page uses the unchanged local original YouTube documentary thumbnail
+
+Preserved:
+- Peach + white visual system
+- News & Events text directly over photography
+- Homepage flow: AIS Now → AIS Next → Footer
+- Original YouTube thumbnail file: assets/images/ais-documentary-thumb.jpg

@@ -5,7 +5,13 @@ window.addEventListener('scroll',onScroll,{passive:true});onScroll();
 
 const menu=document.querySelector('.menu');
 const links=document.querySelector('.nav-links');
-if(menu&&links){menu.addEventListener('click',()=>{const open=links.classList.toggle('mobile-open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'×':'☰'});links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('mobile-open');menu.textContent='☰';menu.setAttribute('aria-expanded','false')}))}
+if(menu&&links){
+  const closeMenu=()=>{links.classList.remove('mobile-open');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Open menu');menu.textContent='☰';document.body.classList.remove('mobile-menu-open')};
+  menu.addEventListener('click',()=>{const open=!links.classList.contains('mobile-open');links.classList.toggle('mobile-open',open);menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'Close menu':'Open menu');menu.textContent=open?'×':'☰';document.body.classList.toggle('mobile-menu-open',open)});
+  links.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&links.classList.contains('mobile-open'))closeMenu()});
+  window.addEventListener('resize',()=>{if(window.innerWidth>820)closeMenu()},{passive:true});
+}
 
 const revealItems=[...document.querySelectorAll('.reveal')];
 // Reveal is intentionally fail-safe: content starts visible so slow connections or blocked observers never create blank sections.
@@ -46,8 +52,8 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAISVideo()});
 const assetPath=document.body && location.pathname.includes('/pages/')?'../assets/images/':'assets/images/';
 const stageData={
 'Early Years':null,
-'EARLY YEARS':{title:'A confident beginning.',copy:'A nurturing environment where children discover the joy of learning, build independence and develop strong social foundations.',img:assetPath+'ais-documentary-thumb.jpg'},
-'NURSERY':{title:'Curiosity starts here.',copy:'Play, language, exploration and relationships come together to create a strong foundation for lifelong learning.',img:assetPath+'ais-documentary-thumb.jpg'},
+'EARLY YEARS':{title:'A confident beginning.',copy:'A nurturing environment where children discover the joy of learning, build independence and develop strong social foundations.',img:assetPath+'ais-early-years-feature.jpg'},
+'NURSERY':{title:'Curiosity starts here.',copy:'Play, language, exploration and relationships come together to create a strong foundation for lifelong learning.',img:assetPath+'ais-early-years-feature.jpg'},
 'KG':{title:'Growing capable learners.',copy:'Children strengthen communication, early numeracy, creativity and confidence through purposeful learning experiences.',img:assetPath+'ais-campus-clean-4k.jpg'},
 'PRIMARY':{title:'Knowledge with purpose.',copy:'Learners build academic strength while developing critical thinking, responsibility, collaboration and confidence.',img:assetPath+'ais-campus-clean-4k.jpg'},
 'JUNIOR HIGH SCHOOL':{title:'Ready for the next chapter.',copy:'Students deepen subject knowledge, leadership, discipline and independent thinking as they prepare for future pathways.',img:assetPath+'ais-campus-clean-4k.jpg'}};
