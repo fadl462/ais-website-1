@@ -1,6 +1,6 @@
 /* AIS homepage newsroom — visual overlay treatment. Text stays directly on photography. */
 #news .homepage-news-overlay{grid-template-columns:1.45fr .55fr;gap:20px;align-items:stretch}
-#news .homepage-news-overlay .featured-news{min-height:540px;border-radius:26px;overflow:hidden;position:relative;background-image:url("../images/news/new-vision-lead-v21.jpg")!important;background-size:cover;background-position:center}
+#news .homepage-news-overlay .featured-news{min-height:540px;border-radius:26px;overflow:hidden;position:relative;background-image:url("../images/news/new-vision-lead-v24.jpg")!important;background-size:cover;background-position:center}
 #news .homepage-news-overlay .featured-news:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(34,19,15,.05) 18%,rgba(34,19,15,.84) 100%);z-index:0}
 #news .homepage-news-overlay .featured-news:after{display:none}
 #news .homepage-news-overlay .featured-news>*{position:relative;z-index:1}
@@ -13,8 +13,8 @@
 #news .homepage-news-overlay .editorial-mark strong{font-size:4rem;line-height:1;color:rgba(255,255,255,.18)}
 #news .homepage-news-overlay .news-list{display:grid;grid-template-rows:1fr 1fr;gap:20px;border:0;background:transparent}
 #news .homepage-news-overlay .news-item{position:relative;min-height:260px;padding:0!important;border:0;border-radius:26px;overflow:hidden;background-size:cover;background-position:center;box-shadow:var(--shadow-peach);transition:transform .35s ease,box-shadow .35s ease}
-#news .homepage-news-overlay .news-item:nth-child(1){background-image:url("../images/news/management-transition-lead-v21.jpg")}
-#news .homepage-news-overlay .news-item:nth-child(2){background-image:url("../images/news/new-vision-lead-v22.jpg")}
+#news .homepage-news-overlay .news-item:nth-child(1){background-image:url("../images/news/management-transition-lead-v24.jpg")}
+#news .homepage-news-overlay .news-item:nth-child(2){background-image:url("../images/news/new-vision-lead-v25.jpg")}
 #news .homepage-news-overlay .news-item:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(34,19,15,.08) 15%,rgba(34,19,15,.88) 100%);z-index:0}
 #news .homepage-news-overlay .news-item:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(150,84,65,.18)}
 #news .homepage-news-overlay .news-item-link>a{position:absolute;inset:0;display:flex;align-items:flex-end;gap:12px;padding:24px;color:#fff!important;text-decoration:none;z-index:1}
